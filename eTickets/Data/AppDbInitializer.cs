@@ -47,14 +47,14 @@ namespace eTickets.Data
                     {
                         new Actor()
                         {
-                            FullName = "Actor 1 (Jamshid HashemPour)",
-                            ProfilePictureURL = "https://media.khabaronline.ir/d/2021/06/06/3/5570381.jpg",
+                            FullName = "Actor 1 (Parsa PirouzFar)",
+                            ProfilePictureURL = "https://files.namnak.com/users/sf/aup/202206/129_pics/%D9%BE%D8%A7%D8%B1%D8%B3%D8%A7-%D9%BE%DB%8C%D8%B1%D9%88%D8%B2%D9%81%D8%B1.jpg",
                             Bio = "This is the Bio of the first actor"
                         },
                         new Actor()
                         {
-                            FullName = "Actor 2 (Amin Hayaie)",
-                            ProfilePictureURL = "https://files.namnak.com/users/sf/aup/202202/383_pics/%D8%A7%D9%85%DB%8C%D9%86-%D8%AD%DB%8C%D8%A7%DB%8C%DB%8C.jpg",
+                            FullName = "Actor 2 (Hamed Ahangi)",
+                            ProfilePictureURL = "https://static3.rasadeghtesadi.com/servev2/PLgRCZLfrP3F/m1MI1kFsYl0,/%D8%AD%D8%A7%D9%85%D8%AF+%D8%A2%D9%87%D9%86%DA%AF%DB%8C.jpg",
                             Bio = "This is the Bio of the second actor"
                         },
                         new Actor()
@@ -65,8 +65,8 @@ namespace eTickets.Data
                         },
                         new Actor()
                         {
-                            FullName = "Actor 4 (Aliram Nouraie)",
-                            ProfilePictureURL = "https://snn.ir/files/fa/news/1399/9/13/1223066_176.jpg",
+                            FullName = "Actor 4 (Parviz Parastooie)",
+                            ProfilePictureURL = "https://fararu.com/files/fa/news/1400/10/16/1112363_684.jpg",
                             Bio = "This is the Bio of the forth actor"
                         }
                     }
@@ -96,7 +96,7 @@ namespace eTickets.Data
                             FullName = "Producer 3 (Maziar Hashemi)",
                             ProfilePictureURL = "https://api.salamcinama.ir/uploads/user/image/271567/large_892790ad-771f-4fc9-b15a-45005fe1fdc6.jpg",
                             Bio = "This is the Bio of the third producer"
-                        },
+                        }
                     }
                     );
                     context.SaveChanges();
@@ -105,13 +105,77 @@ namespace eTickets.Data
                 //Movies
                 if (!context.Movies.Any())
                 {
-
+                    context.Movies.AddRange(new List<Movie>()
+                    {
+                        new Movie()
+                        {
+                            Name = "Yaghi",
+                            Description = "This is the description of the first movie (Yaghi)",
+                            Price = 20.5,
+                            ImageURL = "https://media.hamshahrionline.ir/d/2022/07/13/4/4700785.jpg?ts=1657708534000",
+                            StartDate = DateTime.Now.AddDays(-20),
+                            EndDate = DateTime.Now.AddDays(-2),
+                            MovieCategory = MovieCategory.Drama,
+                            CinemaId = 1,
+                            ProducerId = 3
+                        },
+                        new Movie()
+                        {
+                            Name = "Mafia",
+                            Description = "This is the description of the second movie (Mafia)",
+                            Price = 17.75,
+                            ImageURL = "https://upload.wikimedia.org/wikipedia/fa/a/a3/%D8%B4%D8%A8%E2%80%8C%D9%87%D8%A7%DB%8C_%D9%85%D8%A7%D9%81%DB%8C%D8%A7.png",
+                            StartDate = DateTime.Now.AddDays(-17),
+                            EndDate = DateTime.Now.AddDays(-5),
+                            MovieCategory = MovieCategory.Comedy,
+                            CinemaId = 2,
+                            ProducerId = 1
+                        },
+                        new Movie()
+                        {
+                            Name = "Bodyguard",
+                            Description = "This is the description of the third movie (Bodyguard)",
+                            Price = 12.0,
+                            ImageURL = "https://upload.wikimedia.org/wikipedia/en/4/49/Bodyguard_%282016_film%29.jpg",
+                            StartDate = DateTime.Now.AddDays(-400),
+                            EndDate = DateTime.Now.AddDays(-370),
+                            MovieCategory = MovieCategory.Action,
+                            CinemaId = 3,
+                            ProducerId = 2
+                        },
+                    }
+                    );
+                    context.SaveChanges();
                 }
 
                 //Actors & Movies
                 if (!context.Actors_Movies.Any())
                 {
-
+                    context.Actors_Movies.AddRange(new List<Actor_Movie>()
+                    {
+                        new Actor_Movie()
+                        {
+                            ActorId = 1,
+                            MovieId = 1
+                        },
+                        new Actor_Movie()
+                        {
+                            ActorId = 2,
+                            MovieId = 2
+                        },
+                        new Actor_Movie()
+                        {
+                            ActorId = 4,
+                            MovieId = 3
+                        },
+                        new Actor_Movie()
+                        {
+                            ActorId = 3,
+                            MovieId = 2
+                        }
+                    }
+                    );
+                    context.SaveChanges();
                 }
 
             }
